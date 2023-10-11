@@ -26,12 +26,15 @@ def call_at_interval(time, callback, args):
         timer.start()
         timer.join()
         if(chacker):
-            print("exit")
+            print("closing")
             sys.exit()
 
 
 def setInterval(time, callback, *args):
     Thread(target=call_at_interval, args=(time, callback, args)).start()
 
+
+print("starting...")
 #checks every 15 min if riot is live on twitch and opens the riot website if true
-setInterval(900000, isOnline)
+setInterval(600, isOnline)
+
